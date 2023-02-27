@@ -19,4 +19,6 @@ app.get('*', (req, res) => {
     res.render('error404')
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, () => {
+    console.log(process.env.PORT)
+})
