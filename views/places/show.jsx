@@ -6,8 +6,8 @@ function show(place, id) {
         <Def>
             <main>
                 <h1>{place.name}</h1>
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>
-                <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+                <a href={`/places/${id}/edit`} className="btn btn-warning">Edit</a>
+                <form method="POST" action={`/places/${id}?_method=DELETE`}>
                     <button type="submit" className="btn btn-danger">Delete</button>
                 </form>
                 <h2>Rating</h2>
