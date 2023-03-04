@@ -1,29 +1,30 @@
 // Dependencies
 const router = require('express').Router()
-const { db } = require('../models/places')
+const db  = require('../models')
 const places = require('../models/places')
 
 // Index
 router.get('/', (req, res) => {
-    // res.send('GET /places')
-    res.render('places/index', { places })
+    db.Place.find()
+    .then((places) => {
+        res.render('places/index', { places })
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error404')
+    })
 })
 
 // Create
 router.post('/', (req, res) => {
-    console.log(req.body)
-    if (!req.body.pic) {
-        // Default image if one is not provided
-        req.body.pic = 'http://placekitten.com/400/400'
-    }
-    if (!req.body.city) {
-        req.body.city = 'Anytown'
-    }
-    if (!req.body.state) {
-        req.body.state = 'USA'
-    }
-    places.push(req.body)
-    res.redirect('/places')
+    db.Place.create(req.body)
+    .then(() => {
+        res.redirect('/places')
+    })
+    .catch(err => {
+        console.log('err', err)
+        res.render('error404')
+    })
 })
 
 // Create form

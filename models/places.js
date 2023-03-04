@@ -1,4 +1,6 @@
+const router = require('express').Router()
 const mongoose = require('mongoose')
+const db = require('../models')
 
 const placeSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -11,20 +13,3 @@ const placeSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Place', placeSchema)
 
-
-
-//let places = [{
-//     name: 'H-Thai-ML',
-//     city: 'Seattle',
-//     state: 'WA',
-//     cuisines: 'Thai, Pan-Asian',
-//     pic: 'http://placekitten.com/250/250'
-// }, {
-//     name: 'Coding Cat Cafe',
-//     city: 'Phoenix',
-//     state: 'AZ',
-//     cuisines: 'Coffee, Bakery',
-//     pic: 'http://placekitten.com/250/250'
-// }]
-
-// module.exports = places
