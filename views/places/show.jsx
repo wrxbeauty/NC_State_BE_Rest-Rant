@@ -3,7 +3,9 @@ const Def = require('../default')
 
 function show({place, id}) {
     let comments = (
-        <h3 className="inactive">No comments yet!</h3>
+        <h3 className="inactive">
+            No comments yet!
+        </h3>
     )
     if (data.place.comments.length) {
         comments = data.place.comments.map(c => {
