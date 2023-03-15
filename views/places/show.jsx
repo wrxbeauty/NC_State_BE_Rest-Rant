@@ -43,7 +43,7 @@ function show({place, id}) {
     return (
         <Def>
             <main>
-                <div className="row">
+                <div className="border col-sm-4">
                     <div className="col-sm-6">
                         <img src={data.place.pic} alt={data.place.name} />
                         <h3>
@@ -72,6 +72,9 @@ function show({place, id}) {
                     <a href={`/places/${id}/edit`} className="btn btn-warning">Edit</a>
                     <form method="POST" action={`/places/${id}?_method=DELETE`}>
                         <button type="submit" className="btn btn-danger">Delete</button>
+                    </form>
+                    <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+                    <input type="submit" className="btn btn-danger" value="Delete Comment" />
                     </form>
                     <div>
                         <h2>Comments</h2>
